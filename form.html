@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<title>FORM</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: #0f172a;
+  background: linear-gradient(180deg, #f8fafc, #eef2ff);
+}
+
+.page {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(2, 6, 23, 0.08);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 20px 24px;
+  background: linear-gradient(90deg, #4f46e5, #6366f1);
+  color: #ffffff;
+}
+
+.card-title { margin: 0; font-size: 1.25rem; font-weight: 700; }
+.card-subtitle { margin: 6px 0 0; font-size: .9375rem; opacity: .9; }
+
+.card-body { padding: 24px; }
+
+/* Form */
+.form { display: grid; gap: 16px; }
+
+.field { display: grid; gap: 8px; }
+.label { font-weight: 600; font-size: .9375rem; }
+.required { color: #ef4444; }
+
+.input, .textarea, .select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 1rem;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.textarea { min-height: 112px; resize: vertical; }
+
+.input:focus, .textarea:focus, .select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99,102,241,.2);
+}
+
+.help { font-size: .85rem; color: #475569; }
+.error { color: #ef4444; display: none; font-size: .85rem; }
+
+.actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 8px; }
+
+.button {
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 700;
+  font-size: .95rem;
+  cursor: pointer;
+  transition: filter .15s ease, transform .02s ease;
+}
+
+.button:active { transform: translateY(1px); }
+
+.button.primary { background: #4f46e5; color: #ffffff; }
+.button.secondary { background: #e2e8f0; color: #0f172a; }
+.button:disabled { opacity: .6; cursor: not-allowed; }
+
+/* Responsive tweaks */
+@media (max-width: 420px) {
+  .card-body { padding: 18px; }
+  .card-header { padding: 16px 18px; }
+}
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="card" aria-labelledby="contactTitle">
+      <header class="card-header">
+        <h1 id="contactTitle" class="card-title">FORM</h1>
+        <p class="card-subtitle">We usually reply within one business day.</p>
+      </header>
+
+      <div class="card-body">
+        <form class="form" action="#" method="post" novalidate>
+          <div class="field">
+            <label for="name" class="label">Full name <span class="required" aria-hidden="true">*</span></label>
+            <input id="name" name="name" class="input" type="text" placeholder="Jane Doe" required aria-describedby="nameHelp nameError">
+            <p id="nameHelp" class="help">Enter your first and last name.</p>
+            <p id="nameError" class="error">Please enter your name.</p>
+          </div>
+
+          <div class="field">
+            <label for="email" class="label">Email <span class="required" aria-hidden="true">*</span></label>
+            <input id="email" name="email" class="input" type="email" placeholder="jane@example.com" required aria-describedby="emailError">
+            <p id="emailError" class="error">Please enter a valid email address.</p>
+          </div>
+
+          <div class="field">
+            <label for="phone" class="label">Phone</label>
+            <input id="phone" name="phone" class="input" type="tel" placeholder="(555) 555-1234" pattern="^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$" aria-describedby="phoneHelp phoneError">
+            <p id="phoneHelp" class="help">Optional. Include country code if outside your country.</p>
+            <p id="phoneError" class="error">Please enter a valid phone number.</p>
+          </div>
+
+          <div class="field">
+            <label for="topic" class="label">Topic <span class="required" aria-hidden="true">*</span></label>
+            <select id="topic" name="topic" class="select" required aria-describedby="topicError">
+              <option value="" selected disabled>Select a topic</option>
+              <option>General inquiry</option>
+              <option>Support</option>
+              <option>Billing</option>
+              <option>Feedback</option>
+            </select>
+            <p id="topicError" class="error">Please select a topic.</p>
+          </div>
+
+          <div class="field">
+            <label for="message" class="label">Message <span class="required" aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" class="textarea" placeholder="How can we help?" required minlength="10" aria-describedby="messageHelp messageError"></textarea>
+            <p id="messageHelp" class="help">Provide at least 10 characters.</p>
+            <p id="messageError" class="error">Please enter a longer message.</p>
+          </div>
+
+          <div class="field">
+            <label class="label" for="consent">
+              <input type="checkbox" id="consent" name="consent" required aria-describedby="consentError"> I agree to the terms
+            </label>
+            <p id="consentError" class="error">You must agree before submitting.</p>
+          </div>
+
+          <div class="actions">
+            <button type="reset" class="button secondary">Reset</button>
+            <button type="submit" class="button primary">Send message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+
+

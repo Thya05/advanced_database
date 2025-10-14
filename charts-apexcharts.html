@@ -451,56 +451,47 @@
         </ul>
       </li><!-- End Icons Nav -->
 
-      <li class="nav-heading">Pages</li>
+      <!-- Removed Pages section and all its nav-items -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
-          <i class="bi bi-person"></i>
-          <span>Profile</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
+      <li class="nav-heading">Country</li>
 
+      <!-- Added links below Blank as requested -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
-          <i class="bi bi-question-circle"></i>
-          <span>F.A.Q</span>
+        <a class="nav-link collapsed" href="HOMEPAGE.php">
+          <i class="bi bi-house-door"></i>
+          <span>HOMEPAGE</span>
         </a>
-      </li><!-- End F.A.Q Page Nav -->
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="LONDON.php">
+          <i class="bi bi-geo-alt"></i>
+          <span>LONDON</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="PARIS.php">
+          <i class="bi bi-geo-alt"></i>
+          <span>PARIS</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="TOKYO.php">
+          <i class="bi bi-geo-alt"></i>
+          <span>TOKYO</span>
+        </a>
+      </li>
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
+      <li class="nav-heading">Form</li>
 
+      <!-- Added links below Blank as requested -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>Register</span>
+        <a class="nav-link collapsed" href="form.html">
+          <span style="font-size: 1.2em;">📝</span>
+          <span>FORM</span>
         </a>
-      </li><!-- End Register Page Nav -->
+      </li>
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
-        </a>
-      </li><!-- End Login Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-error-404.html">
-          <i class="bi bi-dash-circle"></i>
-          <span>Error 404</span>
-        </a>
-      </li><!-- End Error 404 Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-blank.html">
-          <i class="bi bi-file-earmark"></i>
-          <span>Blank</span>
-        </a>
-      </li><!-- End Blank Page Nav -->
+      <!-- End added links -->
 
     </ul>
 
@@ -520,6 +511,64 @@
     </div><!-- End Page Title -->
 
     <p>ApexCharts Examples. You can check the <a href="https://apexcharts.com/javascript-chart-demos/" target="_blank">official website</a> for more examples.</p>
+
+    <!-- Custom Chart Example Start -->
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Custom Chart Example</h5>
+              <!-- Custom Chart -->
+              <div id="customChart"></div>
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  new ApexCharts(document.querySelector("#customChart"), {
+                    series: [{
+                      name: 'Website Blog',
+                      data: [450, 800, 650, 900, 1200, 1100, 1000]
+                    }, {
+                      name: 'Social Media',
+                      data: [580, 900, 700, 1200, 1400, 1300, 1250]
+                    }],
+                    chart: {
+                      type: 'line',
+                      height: 330,
+                      toolbar: {
+                        show: true
+                      }
+                    },
+                    stroke: {
+                      width: 3,
+                      curve: 'smooth'
+                    },
+                    xaxis: {
+                      categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                    },
+                    dataLabels: {
+                      enabled: true
+                    },
+                    title: {
+                      text: 'Website Blog vs Social Media Traffic',
+                      align: 'center'
+                    },
+                    colors: ['#3B82F6', '#10B981'],
+                    legend: {
+                      position: 'bottom'
+                    },
+                    tooltip: {
+                      enabled: true
+                    }
+                  }).render();
+                });
+              </script>
+              <!-- End Custom Chart -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Custom Chart Example End -->
 
     <section class="section">
       <div class="row">
